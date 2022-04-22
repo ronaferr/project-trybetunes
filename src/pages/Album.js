@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
-/* import { addSong } from '../services/favoriteSongsAPI'; */
 
 class Album extends React.Component {
   constructor(props) {
@@ -16,7 +15,6 @@ class Album extends React.Component {
       infoAlbum: {},
       musics: [],
       loading: false,
-      /* checked: false, */
     };
   }
 
@@ -62,9 +60,7 @@ class Album extends React.Component {
                     trackName={ musica.trackName }
                     previewUrl={ musica.previewUrl }
                     trackId={ musica.trackId }
-                    /* checked={ checked } */
                     value={ musica }
-                    /* selectFavorite={ selectFavorite(musica) } */
                   />
                 ))}
               </div>
