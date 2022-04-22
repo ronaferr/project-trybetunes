@@ -47,7 +47,6 @@ class Search extends React.Component {
       artista: pesquisa,
     });
     const result = await searchAlbumsAPI(pesquisa);
-    console.log(result);
     if (await result.length > 0) {
       this.setState({
         loading: false,
@@ -68,7 +67,6 @@ class Search extends React.Component {
 
   render() {
     const { disabled, pesquisa, loading, mostrarResultado, artista, albuns } = this.state;
-    console.log(`qtd de albuns ${albuns.length}`);
     const textoResultados = `Resultado de álbuns de: ${artista}`;
     return (
       <div data-testid="page-search">

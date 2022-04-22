@@ -1,16 +1,22 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
+/* import { addSong } from '../services/favoriteSongsAPI'; */
 
 class Album extends React.Component {
   constructor(props) {
     super(props);
 
+    /* this.selectFavorite = this.selectFavorite.bind(this); */
+
     this.state = {
       infoAlbum: {},
       musics: [],
+      loading: false,
+      /* checked: false, */
     };
   }
 
@@ -22,29 +28,48 @@ class Album extends React.Component {
     this.setState({ musics: result });
   }
 
+  /* selectFavorite = async (value) => {
+    console.log(value);
+    this.setState({ loading: true });
+    await addSong(value);
+    this.setState({
+      loading: false,
+      checked: true,
+    }); */
+
   render() {
-    const { infoAlbum, musics } = this.state;
+    const { infoAlbum, musics, loading } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
-        <div>
-          <h1 data-testid="album-name">
-            { `Collection Name ${infoAlbum.collectionName}` }
-          </h1>
-          <br />
-          <p data-testid="artist-name">
-            { `Artist Name ${infoAlbum.artistName}` }
-          </p>
-        </div>
-        <div>
-          { musics.slice(1).map((musica) => (
-            <MusicCard
-              key={ musica.trackName }
-              trackName={ musica.trackName }
-              previewUrl={ musica.previewUrl }
-            />
-          ))}
-        </div>
+        { loading
+          ? <Loading />
+          : (
+            <>
+              <div>
+                <h1 data-testid="album-name">
+                  { `Collection Name ${infoAlbum.collectionName}` }
+                </h1>
+                <br />
+                <p data-testid="artist-name">
+                  { `Artist Name ${infoAlbum.artistName}` }
+                </p>
+              </div>
+              <div>
+                { musics.slice(1).map((musica) => (
+                  <MusicCard
+                    key={ musica.trackName }
+                    trackName={ musica.trackName }
+                    previewUrl={ musica.previewUrl }
+                    trackId={ musica.trackId }
+                    /* checked={ checked } */
+                    value={ musica }
+                    /* selectFavorite={ selectFavorite(musica) } */
+                  />
+                ))}
+              </div>
+            </>)}
+
       </div>
     );
   }
