@@ -119,7 +119,8 @@ class Search extends React.Component {
               </section>
             </div>)
           : (<p>Nenhum álbum foi encontrado</p>)}
-      </div>);
+      </div>
+    );
   }
 }
 

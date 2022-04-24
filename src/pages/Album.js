@@ -3,18 +3,20 @@ import propTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 
 class Album extends React.Component {
   constructor(props) {
     super(props);
 
-    /* this.selectFavorite = this.selectFavorite.bind(this); */
+    this.selectFavorite = this.selectFavorite.bind(this);
 
     this.state = {
       infoAlbum: {},
       musics: [],
       loading: false,
+      favoritas: [],
     };
   }
 
@@ -26,17 +28,18 @@ class Album extends React.Component {
     this.setState({ musics: result });
   }
 
-  /* selectFavorite = async (value) => {
-    console.log(value);
+  selectFavorite = async (value) => {
     this.setState({ loading: true });
     await addSong(value);
+    const backupFavoritas = await getFavoriteSongs();
     this.setState({
       loading: false,
-      checked: true,
-    }); */
+      favoritas: backupFavoritas,
+    });
+  };
 
   render() {
-    const { infoAlbum, musics, loading } = this.state;
+    const { infoAlbum, musics, loading, favoritas } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -61,6 +64,9 @@ class Album extends React.Component {
                     previewUrl={ musica.previewUrl }
                     trackId={ musica.trackId }
                     value={ musica }
+                    checked={ favoritas.some((elemento) => (
+                      elemento.trackId === musica.trackId)) }
+                    selectFavorite={ () => { this.selectFavorite(musica); } }
                   />
                 ))}
               </div>
@@ -72,7 +78,7 @@ class Album extends React.Component {
 }
 
 Album.propTypes = {
-  match: propTypes.objectOf(propTypes.object).isRequired,
+  match: propTypes.objectOf(propTypes.string).isRequired,
 };
 
 export default Album;

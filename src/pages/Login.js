@@ -68,7 +68,8 @@ class Login extends React.Component {
               </fieldset>
             </form>
           )}
-      </div>);
+      </div>
+    );
   }
 }
 
