@@ -24,8 +24,12 @@ class Album extends React.Component {
     const { match } = this.props;
     const desestruturacaoProp = match.params.id;
     const result = await getMusics(desestruturacaoProp);
-    this.setState({ infoAlbum: result[0] });
-    this.setState({ musics: result });
+    const favoritassalvas = await getFavoriteSongs();
+    this.setState({
+      infoAlbum: result[0],
+      musics: result,
+      favoritas: favoritassalvas,
+    });
   }
 
   selectFavorite = async (value) => {
