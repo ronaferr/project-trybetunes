@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import '../css/Login.css';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 
@@ -56,12 +57,15 @@ class Login extends React.Component {
                   type="text"
                   onChange={ this.OnInputChange }
                   data-testid="login-name-input"
+                  className="input"
                 />
+                <br />
                 <button
                   type="button"
                   disabled={ disabled }
                   onClick={ this.LoadingClick }
                   data-testid="login-submit-button"
+                  className="button"
                 >
                   Entrar
                 </button>

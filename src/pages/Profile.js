@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import '../css/Profile.css';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
 
@@ -32,7 +33,7 @@ class Profile extends React.Component {
         { loading
           ? <Loading />
           : (
-            <div>
+            <div className="pagprofile">
               <img
                 data-testid="profile-image"
                 src={ backup.image }

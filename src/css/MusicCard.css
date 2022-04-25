@@ -1,0 +1,11 @@
+.music {
+  align-items: center;
+  border: 2px solid limegreen;
+  border-radius: 17px;
+  color: limegreen;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 20px;
+  width: 700px;
+}

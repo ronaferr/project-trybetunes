@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import '../css/Album.css';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
@@ -50,12 +51,16 @@ class Album extends React.Component {
         { loading
           ? <Loading />
           : (
-            <>
-              <div>
+            <div className="paginaalbum">
+              <div className="detalhesAlbum">
                 <h1 data-testid="album-name">
                   { `Collection Name ${infoAlbum.collectionName}` }
                 </h1>
                 <br />
+                <img
+                  src={ infoAlbum.artworkUrl100 }
+                  alt={ infoAlbum.collectionName }
+                />
                 <p data-testid="artist-name">
                   { `Artist Name ${infoAlbum.artistName}` }
                 </p>
@@ -74,7 +79,7 @@ class Album extends React.Component {
                   />
                 ))}
               </div>
-            </>)}
+            </div>)}
 
       </div>
     );

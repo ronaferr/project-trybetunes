@@ -1,0 +1,18 @@
+.albuns {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+}
+
+.buttonpesquisa {
+  background-color: black;
+  color: limegreen;
+}
+
+.resultados {
+  color: limegreen;
+}
+
+.nope {
+  color: limegreen;
+}

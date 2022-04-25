@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/Search.css';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import CardAlbum from '../components/CardAlbum';
@@ -88,6 +89,7 @@ class Search extends React.Component {
                 type="button"
                 disabled={ disabled }
                 onClick={ this.getAlbuns }
+                className="buttonpesquisa"
                 data-testid="search-artist-button"
               >
                 Pesquisar
@@ -97,10 +99,10 @@ class Search extends React.Component {
         { mostrarResultado
           ? (
             <div>
-              <p>
+              <p className="resultados">
                 { textoResultados }
               </p>
-              <section>
+              <section className="albuns">
                 { albuns.map((album) => (
                   <Link
                     data-testid={ `link-to-album-${album.collectionId}` }
@@ -118,7 +120,7 @@ class Search extends React.Component {
                 ))}
               </section>
             </div>)
-          : (<p>Nenhum álbum foi encontrado</p>)}
+          : (<p className="nope">Nenhum álbum foi encontrado</p>)}
       </div>
     );
   }

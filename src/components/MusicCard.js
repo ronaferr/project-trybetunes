@@ -1,11 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import '../css/MusicCard.css';
 
 class MusicCard extends React.Component {
   render() {
     const { trackName, previewUrl, trackId, value, checked, selectFavorite } = this.props;
     return (
-      <div>
+      <div className="music">
         <p>
           { trackName }
         </p>

@@ -1,14 +1,17 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import '../css/CardAlbum.css';
 
 class CardAlbum extends React.Component {
   render() {
     const { artworkUrl100, artistName, collectionName } = this.props;
     return (
-      <div>
+      <div className="cardalbum">
         <img src={ artworkUrl100 } alt="capa album" />
-        <p>{ artistName }</p>
-        <p>{ collectionName }</p>
+        <div className="infoalbum">
+          <p>{ artistName }</p>
+          <p>{ collectionName }</p>
+        </div>
       </div>
     );
   }

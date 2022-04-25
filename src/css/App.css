@@ -1,0 +1,10 @@
+body {
+  font-family: cursive;
+}
+
+.titulo {
+  color: limegreen;
+  font-family: cursive;
+  font-size: 30px;
+  padding: 20px;
+}

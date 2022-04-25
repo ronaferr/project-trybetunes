@@ -1,0 +1,15 @@
+.paginaalbum {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
+.detalhesAlbum {
+  border: 2px solid limegreen;
+  border-radius: 17px;
+  color: limegreen;
+  height: 250px;
+  padding: 10px;
+}

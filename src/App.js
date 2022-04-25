@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import './css/App.css';
 import Login from './pages/Login';
 import Search from './pages/Search';
 import Album from './pages/Album';
@@ -12,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <section>
-        <p>TrybeTunes</p>
+        <h1 className="titulo">TrybeTunes</h1>
         <Switch>
           <Route path="/profile/edit" component={ ProfileEdit } />
           <Route path="/profile" component={ Profile } />
